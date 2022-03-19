@@ -20,10 +20,17 @@ const MyCollections = () => {
   }, []);
 
   return (
-    <Box sx={{ ...style, width: 1100 }}>
-      <Button sx={{ ...style }} color="primary" variant="contained">
-        CREATE NEW COLLECTION
-      </Button>
+    <Box
+      sx={{
+        ...style,
+        height: 500,
+        width: 1100,
+        display: "flex",
+        flexWrap: "wrap",
+        mb: 1,
+        pb: 3,
+      }}
+    >
       <Typography
         sx={{ ...style, mb: 2, p: 1, border: "solid black 2px" }}
         variant="h1"
