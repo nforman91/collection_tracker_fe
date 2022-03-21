@@ -35,8 +35,6 @@ const CreateNewCollection = (props) => {
       .then((res) => {
         setCollection([res.data, ...collection]);
         setFormValues(initialFormValues);
-        console.log(formValues);
-        // alert(`Collection created successfully!`);
         navigate("/mycollections");
       })
       .catch((err) => {

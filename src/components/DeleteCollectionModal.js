@@ -1,8 +1,17 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 
 const DeleteCollectionModal = (props) => {
-  const { collection_name } = props;
+  const { collection } = props;
+
+  const style = {
+    height: 30,
+    width: 80,
+    mr: 5,
+    backgroundColor: "white",
+    color: "black",
+    border: "1px solid black",
+  };
 
   const handleYes = () => {
     props.handleYes();
@@ -19,15 +28,20 @@ const DeleteCollectionModal = (props) => {
         height: 80,
         border: "1px solid black",
         backgroundColor: "white",
-        m: 1,
+        mt: -5,
         p: 1,
+        borderRadius: 2,
       }}
     >
       <Typography>
-        {`Are you sure you want to delete ${collection_name}?`}
+        {`Are you sure you want to delete ${collection.collection_name}?`}
       </Typography>
-      <button onClick={handleYes}>Yes</button>
-      <button onClick={handleNo}>No</button>
+      <Button sx={{ ...style }} onClick={handleYes}>
+        Yes
+      </Button>
+      <Button sx={{ ...style }} onClick={handleNo}>
+        No
+      </Button>
     </Box>
   );
 };

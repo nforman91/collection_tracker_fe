@@ -8,17 +8,23 @@ const style = {
   width: { sm: 100, md: 300 },
   backgroundColor: "primary.light",
   boxShadow: 6,
-  mt: 1,
-  ml: 3,
+  mt: 2,
+  ml: 2,
   p: 2,
-  display: "flex",
-  justifyContent: "space-between",
   flexWrap: "wrap",
-  //   flexDirection: "column",
+};
+
+const buttonStyle = {
+  height: 30,
+  width: 80,
+  backgroundColor: "white",
+  color: "black",
+  border: "1px solid black",
+  mt: 1,
+  mb: 1,
 };
 
 const CollectionPageItem = (props) => {
-  //   const { collection_id, collection_name, collection_type } = props.collection;
   const { collection } = props;
   const [modal, setModal] = useState(false);
 
@@ -41,39 +47,38 @@ const CollectionPageItem = (props) => {
   };
 
   return (
-    <Box sx={{ ...style }}>
-      <div>{collection.collection_name}</div>
-      <div>{collection.collection_type}</div>
-      <Link to={`/mycollections/update`}>
-        <button>EditNOT</button>
-      </Link>
-      <Link
-        to={{
-          pathname: `/mycollections/${collection.collection_name}`,
-          state: { collection: collection },
-        }}
-      >
-        <button>ViewNOT</button>
-      </Link>
-      <Button
+    <Box sx={{ ...style, display: "flex", flexDirection: "column" }}>
+      <div>Collection Name: {collection.collection_name}</div>
+      <div>Collection Type: {collection.collection_type}</div>
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Link to={`/mycollections/update`}>
+          <Button sx={{ ...buttonStyle }}>EditNOT</Button>
+        </Link>
+        <Link
+          to={{
+            pathname: `/mycollections/${collection.collection_name}`,
+            state: { collection: collection },
+          }}
+        >
+          <Button sx={{ ...buttonStyle }}>ViewNOT</Button>
+        </Link>
+        <Button sx={{ ...buttonStyle }} onClick={showModal}>
+          Delete
+        </Button>
+      </Box>
+      <Box
         sx={{
-          height: 30,
-          width: 100,
-          backgroundColor: "white",
-          color: "black",
-          border: "1px solid black",
+          mt: 7,
         }}
-        onClick={showModal}
       >
-        Delete
-      </Button>
-      {modal && (
-        <DeleteCollectionModal
-          collection_name={collection.collection_name}
-          handleYes={handleYes}
-          handleNo={handleNo}
-        />
-      )}
+        {modal && (
+          <DeleteCollectionModal
+            collection={collection}
+            handleYes={handleYes}
+            handleNo={handleNo}
+          />
+        )}
+      </Box>
     </Box>
   );
 };
