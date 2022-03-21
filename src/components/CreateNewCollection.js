@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, TextField, Typography, Button } from "@mui/material";
 
 const style = {
@@ -9,13 +10,17 @@ const style = {
   m: 3,
 };
 
-const CreateNewCollection = () => {
+const CreateNewCollection = (props) => {
+  const navigate = useNavigate();
+
   const initialFormValues = {
     collection_name: "",
+    collection_type: "",
   };
 
   const initialFormErrors = {
     collection_name: "",
+    collection_type: "",
   };
 
   const initialCollection = [];
@@ -30,6 +35,9 @@ const CreateNewCollection = () => {
       .then((res) => {
         setCollection([res.data, ...collection]);
         setFormValues(initialFormValues);
+        console.log(formValues);
+        // alert(`Collection created successfully!`);
+        navigate("/mycollections");
       })
       .catch((err) => {
         console.log(err);
@@ -41,6 +49,7 @@ const CreateNewCollection = () => {
     e.preventDefault();
     const newCollection = {
       collection_name: formValues.collection_name.trim(),
+      collection_type: formValues.collection_type.trim(),
     };
     postCollection(newCollection);
   };
@@ -62,6 +71,7 @@ const CreateNewCollection = () => {
         autoComplete="off"
         m={3}
       >
+        <Typography variant="h2">Create New Collection</Typography>
         <Typography variant="h4">Collection Name</Typography>
         <TextField
           required
@@ -72,6 +82,17 @@ const CreateNewCollection = () => {
           type="text"
           onChange={onChange}
           value={formValues.collection_name}
+        />
+        <Typography variant="h4">Collection Type</Typography>
+        <TextField
+          required
+          id="standard-required"
+          label="Collection Type"
+          variant="standard"
+          name="collection_type"
+          type="text"
+          onChange={onChange}
+          value={formValues.collection_type}
         />
         <Button
           sx={{ ...style }}

@@ -4,8 +4,8 @@ import { useParams, useHistory } from "react-router-dom";
 
 const CollectionPage = (props) => {
   const [displayedCollection, setDisplayedCollection] = useState([]);
-  //   const { collection } = props;
-  const { collection_id } = useParams();
+  const { collection } = props;
+  //   const { collection_id } = useParams();
 
   //   const { collections } = props;
   //   const collections = props.collections;
@@ -16,7 +16,7 @@ const CollectionPage = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:9000/api/collections/${collection_id}`)
+      .get(`http://localhost:9000/api/collections/${collection.collection_id}`)
       .then((res) => {
         setDisplayedCollection(res.data);
       });

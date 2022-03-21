@@ -9,6 +9,7 @@ import Signup from "./components/Signup";
 import MyCollections from "./components/MyCollections";
 import CreateNewCollection from "./components/CreateNewCollection";
 import CollectionPage from "./components/CollectionPage";
+import UpdateCollection from "./components/UpdateCollection";
 import Logout from "./components/Logout";
 
 function App() {
@@ -19,9 +20,16 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/mycollections" element={<MyCollections />} />
-        <Route path="/collection/:collection_id" element={<CollectionPage />} />
-        <Route path="/collection" element={<CreateNewCollection />} />
+        <Route exact path="/mycollections" element={<MyCollections />} />
+        <Route
+          path="/mycollections/createnew"
+          element={<CreateNewCollection />}
+        />
+        <Route
+          path="/mycollections/:collection_name"
+          element={<CollectionPage />}
+        />
+        <Route path="/mycollections/update" element={<UpdateCollection />} />
       </Routes>
     </Router>
   );

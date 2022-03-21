@@ -8,6 +8,8 @@ const style = {
   backgroundColor: "primary.light",
   boxShadow: 6,
   m: 3,
+  display: "flex",
+  flexWrap: "wrap",
 };
 
 const MyCollections = () => {
@@ -25,14 +27,12 @@ const MyCollections = () => {
         ...style,
         height: 500,
         width: 1100,
-        display: "flex",
-        flexWrap: "wrap",
         mb: 1,
         pb: 3,
       }}
     >
       <Typography
-        sx={{ ...style, mb: 2, p: 1, border: "solid black 2px" }}
+        sx={{ ...style, p: 1, border: "solid black 1px" }}
         variant="h1"
         color="secondary"
       >
@@ -44,6 +44,7 @@ const MyCollections = () => {
             <CollectionPageItem
               key={collection.collection_id}
               collection={collection}
+              setCollections={setCollections}
             />
           );
         })}

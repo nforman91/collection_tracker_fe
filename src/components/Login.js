@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, TextField, Typography, Button } from "@mui/material";
 
 const style = {
@@ -9,6 +10,8 @@ const style = {
 };
 
 const Login = () => {
+  const navigate = useNavigate();
+
   return (
     <Box
       component="form"
@@ -34,7 +37,12 @@ const Login = () => {
         label="Password"
         variant="standard"
       />
-      <Button sx={{ ...style }} color="primary" variant="contained">
+      <Button
+        sx={{ ...style }}
+        color="primary"
+        variant="contained"
+        onClick={() => navigate("/mycollections")}
+      >
         LOGIN
       </Button>
     </Box>
