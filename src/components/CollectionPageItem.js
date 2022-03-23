@@ -25,7 +25,7 @@ const buttonStyle = {
 };
 
 const CollectionPageItem = (props) => {
-  const { collection } = props;
+  const { collection, setCollections } = props;
   const [modal, setModal] = useState(false);
 
   const showModal = () => {
@@ -38,7 +38,7 @@ const CollectionPageItem = (props) => {
         `http://localhost:9000/api/collections/${collection.collection_id}`
       )
       .then((res) => {
-        props.setCollections(res.data);
+        setCollections(res.data);
       });
   };
 

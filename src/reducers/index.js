@@ -1,9 +1,10 @@
-import { DELETE_COLLECTION } from "../actions";
+import { DELETE_COLLECTION, FETCH_COLLECTIONS_SUCCESS } from "../actions";
 // import { collections } from "../components/MyCollections";
-import axios from "axios";
 
 export const initialState = {
-  collections: axios.get(`http://localhost:9000/api/collections`),
+  //   collections: collections,
+  collection_name: "",
+  collection_id: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -13,6 +14,12 @@ const reducer = (state = initialState, action) => {
         collections: state.collections.filter(
           (collection) => action.payload !== collection.collection_id
         ),
+      };
+    case FETCH_COLLECTIONS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        collections: action.payload.collections,
       };
     default:
       return state;
