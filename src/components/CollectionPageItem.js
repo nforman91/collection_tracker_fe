@@ -22,6 +22,7 @@ const buttonStyle = {
   border: "1px solid black",
   mt: 1,
   mb: 1,
+  //   textDecoration: "none",
 };
 
 const CollectionPageItem = (props) => {
@@ -30,6 +31,7 @@ const CollectionPageItem = (props) => {
 
   const showModal = () => {
     setModal(true);
+    console.log("Collection: ", collection);
   };
 
   const handleYes = () => {
@@ -51,16 +53,24 @@ const CollectionPageItem = (props) => {
       <div>Collection Name: {collection.collection_name}</div>
       <div>Collection Type: {collection.collection_type}</div>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Link to={`/mycollections/update`}>
-          <Button sx={{ ...buttonStyle }}>EditNOT</Button>
-        </Link>
+        {/* <Link
+          to={{
+            pathname: `/mycollections/${collection.collection_name}/update`,
+            state: { collection: collection },
+          }}
+        >
+          <Button sx={{ ...buttonStyle }}>Edit</Button>
+        </Link> */}
         <Link
           to={{
             pathname: `/mycollections/${collection.collection_name}`,
             state: { collection: collection },
           }}
+          //   state={collection}
+          //   collection={collection}
+          //   setCollections={setCollections}
         >
-          <Button sx={{ ...buttonStyle }}>ViewNOT</Button>
+          <Button sx={{ ...buttonStyle }}>View</Button>
         </Link>
         <Button sx={{ ...buttonStyle }} onClick={showModal}>
           Delete
@@ -74,6 +84,7 @@ const CollectionPageItem = (props) => {
         {modal && (
           <DeleteCollectionModal
             collection={collection}
+            // setCollections={setCollections}
             handleYes={handleYes}
             handleNo={handleNo}
           />

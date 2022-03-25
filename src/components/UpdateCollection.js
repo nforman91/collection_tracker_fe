@@ -10,43 +10,43 @@ const style = {
   m: 3,
 };
 
-const initialState = {
-  collection_name: "",
-  collection_type: "",
-};
+// const initialState = {
+//   collection_name: "",
+//   collection_type: "",
+// };
 
 const UpdateCollection = (props) => {
   const navigate = useNavigate();
+  const { collection } = props;
+  const [updatedCollection, setUpdatedCollection] = useState(collection);
+  //   const [collectionName, setCollectionName] = useState(
+  //     collection.collection_name
+  //   );
+  //   const [collectionType, setCollectionType] = useState(
+  //     collection.collection_type
+  //   );
 
-  const [collection, setCollection] = useState(initialState);
-  const [collectionName, setCollectionName] = useState(
-    collection.collection_name
-  );
-  const [collectionType, setCollectionType] = useState(
-    collection.collection_type
-  );
+  //   const handleUpdate = (e) => {
+  //     e.preventDefault();
+  //     const updatedCollection = {
+  //       collection_name: collectionName,
+  //       collection_type: collectionType,
+  //     };
+  //     axios
+  //       .put(`http://localhost:9000/api/collections/collection`, collection)
+  //       .then((res) => {
+  //         setCollection(res.data);
+  //         navigate("/mycollections");
+  //       });
+  //   };
 
-  const handleUpdate = (e) => {
-    e.preventDefault();
-    const updatedCollection = {
-      collection_name: collectionName,
-      collection_type: collectionType,
-    };
-    axios
-      .put(`http://localhost:9000/api/collections/collection`, collection)
-      .then((res) => {
-        setCollection(res.data);
-        navigate("/mycollections");
-      });
-  };
+  //   const changeCollectionName = (e) => {
+  //     setCollectionName(e.target.value);
+  //   };
 
-  const changeCollectionName = (e) => {
-    setCollectionName(e.target.value);
-  };
-
-  const changeCollectionType = (e) => {
-    setCollectionType(e.target.value);
-  };
+  //   const changeCollectionType = (e) => {
+  //     setCollectionType(e.target.value);
+  //   };
 
   return (
     <div className="collection-update">
@@ -70,7 +70,7 @@ const UpdateCollection = (props) => {
           variant="standard"
           name="collection_name"
           type="text"
-          onChange={changeCollectionName}
+          //   onChange={changeCollectionName}
           // value={formValues.collection_name}
           placeholder={collection.collection_name}
         />
@@ -81,7 +81,7 @@ const UpdateCollection = (props) => {
           variant="standard"
           name="collection_type"
           type="text"
-          onChange={changeCollectionType}
+          //   onChange={changeCollectionType}
           // value={formValues.collection_type}
           placeholder={collection.collection_type}
         />
@@ -89,7 +89,7 @@ const UpdateCollection = (props) => {
           sx={{ ...style }}
           color="primary"
           variant="contained"
-          onClick={handleUpdate}
+          //   onClick={handleUpdate}
         >
           UPDATE COLLECTION
         </Button>

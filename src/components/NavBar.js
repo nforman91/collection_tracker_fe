@@ -20,7 +20,7 @@ const NavBar = () => {
             <Link to="/login">Login</Link>
             <Link to="/signup">Signup</Link>
             <Link to="/mycollections">My Collections</Link>
-            <Link to="/mycollections/createnew">Create New Collection</Link>
+            {/* <Link to="/mycollections/createnew">Create New Collection</Link> */}
           </StyledLinks>
         </Toolbar>
       </AppBar>

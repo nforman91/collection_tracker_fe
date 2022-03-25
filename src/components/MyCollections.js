@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+// import { CollectionContext } from "../contexts/CollectionContext";
 import axios from "axios";
 import { Box, Typography } from "@mui/material";
 import CollectionPageItem from "./CollectionPageItem";
@@ -13,6 +15,7 @@ const style = {
 };
 
 const MyCollections = () => {
+  //   const [collection] = useContext(CollectionContext);
   const [collections, setCollections] = useState([]);
 
   useEffect(() => {
@@ -43,6 +46,9 @@ const MyCollections = () => {
       >
         My Collections
       </Typography>
+      <Box sx={{ ml: 3 }}>
+        <Link to="/mycollections/createnew">Create New Collection</Link>
+      </Box>
       <Box sx={{ ...style, p: 2 }}>
         {collections &&
           collections.map((collection) => {
@@ -50,7 +56,7 @@ const MyCollections = () => {
               <CollectionPageItem
                 key={collection.collection_id}
                 collection={collection}
-                setCollections={setCollections}
+                // setCollections={setCollections}
               />
             );
           })}
