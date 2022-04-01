@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Box, Typography } from "@mui/material";
 import CollectionPageItem from "./CollectionPageItem";
-// import { connect } from "react-redux";
+// import fetchCollections from "../api/fetchCollections";
+import { connect } from "react-redux";
 
 const style = {
   backgroundColor: "primary.light",
@@ -14,14 +15,16 @@ const style = {
   flexWrap: "wrap",
 };
 
-const MyCollections = () => {
+const MyCollections = (props) => {
+  const { collections } = props;
   //   const [collection] = useContext(CollectionContext);
-  const [collections, setCollections] = useState([]);
+  const [myCollections, setMyCollections] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:9000/api/collections`).then((res) => {
-      setCollections(res.data);
-    });
+    // fetchCollections()
+    // .then((res) => {
+    setMyCollections(collections);
+    // });
   }, []);
 
   return (
@@ -65,11 +68,11 @@ const MyCollections = () => {
   );
 };
 
-// const mapStateToProps = (state) => {
-//   return {
-//     collections: state.collections,
-//   };
-// };
+const mapStateToProps = (state) => {
+  return {
+    collections: state.collections,
+  };
+};
 
-// export default connect(mapStateToProps)(MyCollections);
-export default MyCollections;
+export default connect(mapStateToProps)(MyCollections);
+// export default MyCollections;

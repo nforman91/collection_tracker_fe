@@ -17,13 +17,13 @@ import Logout from "./components/Logout";
 
 function App() {
   const shouldRedirect = true;
-  const [collection, setCollection] = useState([]);
+  // const [collection, setCollection] = useState([]);
 
-  useEffect(() => {
-    axios.get(`http://localhost:9000/api/collections`).then((res) => {
-      setCollection(res.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get(`http://localhost:9000/api/collections`).then((res) => {
+  //     setCollection(res.data);
+  //   });
+  // }, []);
 
   return (
     <Router>

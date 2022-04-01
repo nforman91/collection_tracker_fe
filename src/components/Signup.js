@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, TextField, Typography, Button } from "@mui/material";
 import axios from "axios";
 
@@ -16,8 +17,10 @@ const initialSignUpValues = {
 
 const Signup = () => {
   const [signUpValues, setSignUpValues] = useState(initialSignUpValues);
+  const navigate = useNavigate();
 
   //   const onChange = (name, value) => {
+  //     console.log(signUpValues);
   //     setSignUpValues({ ...signUpValues, [name]: value });
   //   };
 
@@ -39,10 +42,11 @@ const Signup = () => {
   //     postUser(newUser);
   //   };
 
-  const handleChange = (e) => {
+  const handleChange = (name, value) => {
+    console.log(signUpValues);
     setSignUpValues({
       ...signUpValues,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
@@ -51,11 +55,12 @@ const Signup = () => {
       .post("http://localhost:9000/api/users/signup", signUpValues)
       .then((res) => {
         console.log(res);
-        setSignUpValues(initialSignUpValues);
+        // setSignUpValues(initialSignUpValues);
+        // navigate("/");
       })
       .catch((err) => {
         console.log(err);
-        e.preventDefault();
+        // e.preventDefault();
       });
   };
 
@@ -78,7 +83,7 @@ const Signup = () => {
         id="standard-required"
         label="Username"
         variant="standard"
-        // value={signUpValues.username}
+        value={signUpValues.username}
         onChange={handleChange}
       />
       <TextField
@@ -86,12 +91,33 @@ const Signup = () => {
         id="standard-required"
         label="Password"
         variant="standard"
-        // value={signUpValues.password}
+        value={signUpValues.password}
         onChange={handleChange}
       />
       <Button sx={{ ...style }} color="primary" variant="contained">
         SIGNUP
       </Button>
+      {/* <form onSubmit={submitChange}>
+        <label>
+          Username:
+          <input
+            onChange={change}
+            value={signUpValues.username}
+            type="text"
+            name="username"
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            onChange={change}
+            value={signUpValues.password}
+            type="text"
+            name="password"
+          />
+        </label>
+        <button>SUBMIT</button>
+      </form> */}
     </Box>
   );
 };
