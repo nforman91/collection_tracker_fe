@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const style = {
   backgroundColor: "primary.light",
-  ml: -4,
+  width: "100%",
 };
 
 const NavBar = () => {

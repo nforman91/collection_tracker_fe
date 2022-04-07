@@ -5,6 +5,7 @@ import axios from "axios";
 import { Box, Typography } from "@mui/material";
 import CollectionPageItem from "./CollectionPageItem";
 // import fetchCollections from "../api/fetchCollections";
+import fetchCollections from "../actions";
 import { connect } from "react-redux";
 
 const style = {
@@ -17,15 +18,16 @@ const style = {
 
 const MyCollections = (props) => {
   const { collections } = props;
+  console.log("COLLECTIONS: ", collections);
   //   const [collection] = useContext(CollectionContext);
-  const [myCollections, setMyCollections] = useState([]);
+  //   const [myCollections, setMyCollections] = useState([]);
 
-  useEffect(() => {
-    // fetchCollections()
-    // .then((res) => {
-    setMyCollections(collections);
-    // });
-  }, []);
+  //   useEffect(() => {
+  //     fetchCollections().then((res) => {
+  //       setMyCollections(collections);
+  //       console.log("COLLECTIONS: ", collections);
+  //     });
+  //   }, []);
 
   return (
     <Box

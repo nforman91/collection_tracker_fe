@@ -54,7 +54,7 @@ const Login = () => {
         id="standard-required"
         label="Username"
         variant="standard"
-        // value={login.username}
+        value={login.username}
         onChange={handleChange}
       />
       <TextField
@@ -62,7 +62,7 @@ const Login = () => {
         id="standard-required"
         label="Password"
         variant="standard"
-        // value={login.password}
+        value={login.password}
         onChange={handleChange}
       />
       <Button sx={{ ...style }} color="primary" variant="contained">

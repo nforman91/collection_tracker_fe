@@ -1,6 +1,6 @@
 // import axios from "axios";
 import {
-  DELETE_COLLECTION,
+  //   DELETE_COLLECTION,
   FETCH_COLLECTIONS_START,
   FETCH_COLLECTIONS_SUCCESS,
   FETCH_COLLECTIONS_FAIL,
@@ -54,12 +54,12 @@ export const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case DELETE_COLLECTION:
-      return {
-        collections: state.collections.filter(
-          (collection) => action.payload !== collection.collection_id
-        ),
-      };
+    // case DELETE_COLLECTION:
+    //   return {
+    //     collections: state.collections.filter(
+    //       (collection) => action.payload !== collection.collection_id
+    //     ),
+    //   };
     case FETCH_COLLECTIONS_START:
       return {
         ...state,

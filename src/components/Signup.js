@@ -15,8 +15,14 @@ const initialSignUpValues = {
   password: "",
 };
 
+const initialUser = {
+  username: "",
+  password: "",
+};
+
 const Signup = () => {
   const [signUpValues, setSignUpValues] = useState(initialSignUpValues);
+  const [user, setUser] = useState(initialUser);
   const navigate = useNavigate();
 
   //   const onChange = (name, value) => {
@@ -50,17 +56,17 @@ const Signup = () => {
     });
   };
 
-  const postUser = (e) => {
+  const postUser = (newUser) => {
     axios
-      .post("http://localhost:9000/api/users/signup", signUpValues)
+      .post("http://localhost:9000/api/users/signup", newUser)
       .then((res) => {
-        console.log(res);
-        // setSignUpValues(initialSignUpValues);
-        // navigate("/");
+        setUser([res.data, ...user]);
+        setSignUpValues(initialSignUpValues);
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);
-        // e.preventDefault();
+        setSignUpValues(initialSignUpValues);
       });
   };
 
