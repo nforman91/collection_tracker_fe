@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import React from "react";
+// import { useNavigate } from "react-router-dom";
+// import axios from "axios";
 import { Box, TextField, Typography, Button } from "@mui/material";
 
 const style = {
@@ -16,37 +16,9 @@ const style = {
 // };
 
 const UpdateCollection = (props) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { collection } = props;
-  const [updatedCollection, setUpdatedCollection] = useState(collection);
-  //   const [collectionName, setCollectionName] = useState(
-  //     collection.collection_name
-  //   );
-  //   const [collectionType, setCollectionType] = useState(
-  //     collection.collection_type
-  //   );
-
-  //   const handleUpdate = (e) => {
-  //     e.preventDefault();
-  //     const updatedCollection = {
-  //       collection_name: collectionName,
-  //       collection_type: collectionType,
-  //     };
-  //     axios
-  //       .put(`http://localhost:9000/api/collections/collection`, collection)
-  //       .then((res) => {
-  //         setCollection(res.data);
-  //         navigate("/mycollections");
-  //       });
-  //   };
-
-  //   const changeCollectionName = (e) => {
-  //     setCollectionName(e.target.value);
-  //   };
-
-  //   const changeCollectionType = (e) => {
-  //     setCollectionType(e.target.value);
-  //   };
+  // const [updatedCollection, setUpdatedCollection] = useState(collection);
 
   return (
     <div className="collection-update">

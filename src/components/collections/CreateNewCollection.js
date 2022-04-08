@@ -18,16 +18,16 @@ const CreateNewCollection = (props) => {
     collection_type: "",
   };
 
-  const initialFormErrors = {
-    collection_name: "",
-    collection_type: "",
-  };
+  // const initialFormErrors = {
+  //   collection_name: "",
+  //   collection_type: "",
+  // };
 
   const initialCollection = [];
 
   const [collection, setCollection] = useState(initialCollection);
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [formErrors, setFormErrors] = useState(initialFormErrors);
+  // const [formErrors, setFormErrors] = useState(initialFormErrors);
 
   const postCollection = (newCollection) => {
     axios

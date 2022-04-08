@@ -25,29 +25,6 @@ const Signup = () => {
   const [user, setUser] = useState(initialUser);
   const navigate = useNavigate();
 
-  //   const onChange = (name, value) => {
-  //     console.log(signUpValues);
-  //     setSignUpValues({ ...signUpValues, [name]: value });
-  //   };
-
-  //   const change = (e) => {
-  //     const { name, value } = e.target;
-  //     onChange(name, value);
-  //   };
-
-  //   const submitChange = (e) => {
-  //     e.preventDefault();
-  //     submit();
-  //   };
-
-  //   const submit = () => {
-  //     const newUser = {
-  //       username: signUpValues.username,
-  //       password: signUpValues.password,
-  //     };
-  //     postUser(newUser);
-  //   };
-
   const handleChange = (name, value) => {
     console.log(signUpValues);
     setSignUpValues({
@@ -103,27 +80,6 @@ const Signup = () => {
       <Button sx={{ ...style }} color="primary" variant="contained">
         SIGNUP
       </Button>
-      {/* <form onSubmit={submitChange}>
-        <label>
-          Username:
-          <input
-            onChange={change}
-            value={signUpValues.username}
-            type="text"
-            name="username"
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            onChange={change}
-            value={signUpValues.password}
-            type="text"
-            name="password"
-          />
-        </label>
-        <button>SUBMIT</button>
-      </form> */}
     </Box>
   );
 };

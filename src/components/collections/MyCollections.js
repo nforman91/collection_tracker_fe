@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 // import { CollectionContext } from "../contexts/CollectionContext";
-import axios from "axios";
+// import axios from "axios";
 import { Box, Typography } from "@mui/material";
 import CollectionPageItem from "./CollectionPageItem";
 // import fetchCollections from "../api/fetchCollections";
-import fetchCollections from "../actions";
+// import fetchCollections from "../../actions";
 import { connect } from "react-redux";
 
 const style = {
@@ -19,15 +19,6 @@ const style = {
 const MyCollections = (props) => {
   const { collections } = props;
   console.log("COLLECTIONS: ", collections);
-  //   const [collection] = useContext(CollectionContext);
-  //   const [myCollections, setMyCollections] = useState([]);
-
-  //   useEffect(() => {
-  //     fetchCollections().then((res) => {
-  //       setMyCollections(collections);
-  //       console.log("COLLECTIONS: ", collections);
-  //     });
-  //   }, []);
 
   return (
     <Box

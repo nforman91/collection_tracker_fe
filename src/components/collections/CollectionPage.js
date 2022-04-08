@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useParams, useNavigate, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React from "react";
+// import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
+// import { useSelector } from "react-redux";
 import { Box, Typography, Button } from "@mui/material";
 import UpdateCollection from "./UpdateCollection";
 
@@ -22,25 +22,6 @@ const CollectionPage = (props) => {
   //   const displayedCollection = useSelector((state) => state.collection);
   const { collection_name } = useParams();
   const navigate = useNavigate();
-
-  //   const { collections } = props;
-  //   const collections = props.collections;
-
-  //   const collection = collections.find(
-  //     (collection) => collection.collection_id === collection_id
-  //   );
-
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:9000/api/collections/${collection.collection_id}`)
-  //     .then((res) => {
-  //       setDisplayedCollection(res.data);
-  //     });
-  // }, []);
-
-  //   const displayed = collection.filter(
-  //     (display) => display === collection.collection_id
-  //   );
 
   const showCollection = () => {
     console.log("Collection: ", collection);
