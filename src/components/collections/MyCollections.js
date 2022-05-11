@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import { CollectionContext } from "../contexts/CollectionContext";
 import axios from "axios";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import CollectionPageItem from "./CollectionPageItem";
 // import fetchCollections from "../api/fetchCollections";
 import { fetchCollections } from "../../actions/collectionsAction";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 const style = {
   backgroundColor: "primary.light",
-  boxShadow: 6,
   m: 3,
   display: "flex",
   flexWrap: "wrap",
@@ -48,18 +48,25 @@ const MyCollections = () => {
         sx={{
           ...style,
           p: 1,
-          border: "solid black 1px",
           height: 100,
           width: 1000,
+          
         }}
         variant="h1"
         color="secondary"
       >
-        My Collections
+        <u>My Collections</u>
       </Typography>
-      <Box sx={{ ml: 3 }}>
-        <Link to="/mycollections/createnew">Create New Collection</Link>
-      </Box>
+      <Button sx={{
+        m: "0 2rem 0 2rem",
+        width: { sm: 100, md: 300 },
+        boxShadow: 6,
+        borderRadius: "10rem",
+      }} color="primary" variant="contained">
+        <StyledLink>
+          <Link to="/mycollections/createnew">Create New Collection</Link>
+        </StyledLink>
+      </Button>
       <Box sx={{ ...style, p: 2 }}>
         {collections &&
           collections.map((collection) => {
@@ -76,6 +83,13 @@ const MyCollections = () => {
     </Box>
   );
 };
+
+const StyledLink = styled.div`
+  a{
+    color: #000;
+    text-decoration: none;
+  }
+`;
 
 const mapStateToProps = (state) => {
   return {

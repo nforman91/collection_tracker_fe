@@ -10,34 +10,31 @@ const style = {
   boxShadow: 6,
 };
 
-const initialSignUpValues = {
-  username: "",
-  password: "",
-};
-
-const initialUser = {
-  username: "",
-  password: "",
-};
+// const initialUser = {
+//   username: "",
+//   password: "",
+// };
 
 const Signup = () => {
-  const [signUpValues, setSignUpValues] = useState(initialSignUpValues);
-  const [user, setUser] = useState(initialUser);
   const navigate = useNavigate();
 
-  const handleChange = (name, value) => {
-    console.log(signUpValues);
-    setSignUpValues({
-      ...signUpValues,
-      [name]: value,
-    });
+  const initialSignUpValues = {
+    username: "",
+    password: "",
   };
+
+  const initialUser = [];
+
+  const [user, setUser] = useState(initialUser);
+  const [signUpValues, setSignUpValues] = useState(initialSignUpValues);
+
+  
 
   const postUser = (newUser) => {
     axios
       .post("http://localhost:9000/api/users/signup", newUser)
       .then((res) => {
-        setUser([res.data, ...signUpValues]);
+        setUser([res.data, ...user]);
         setSignUpValues(initialSignUpValues);
         navigate("/");
       })
@@ -45,6 +42,23 @@ const Signup = () => {
         console.log(err);
         setSignUpValues(initialSignUpValues);
       });
+  };
+
+  const formSubmit = (e) => {
+    e.preventDefault();
+    const newUser = {
+      username: signUpValues.username.trim(),
+      password: signUpValues.password.trim(),
+    };
+    postUser(newUser);
+  };
+
+  const handleChange = (e) => {
+    console.log(signUpValues);
+    setSignUpValues({
+      ...signUpValues,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
@@ -58,7 +72,6 @@ const Signup = () => {
       noValidate
       autoComplete="off"
       m={3}
-      onSubmit={postUser}
     >
       <Typography variant="h4">Signup</Typography>
       <TextField
@@ -66,6 +79,7 @@ const Signup = () => {
         id="standard-required"
         label="Username"
         variant="standard"
+        name="username"
         value={signUpValues.username}
         onChange={handleChange}
       />
@@ -74,10 +88,11 @@ const Signup = () => {
         id="standard-required"
         label="Password"
         variant="standard"
+        name="password"
         value={signUpValues.password}
         onChange={handleChange}
       />
-      <Button sx={{ ...style }} color="primary" variant="contained">
+      <Button sx={{ ...style }} color="primary" variant="contained" onClick={formSubmit}>
         SIGNUP
       </Button>
     </Box>

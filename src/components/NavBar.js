@@ -30,8 +30,9 @@ const NavBar = () => {
 
 const StyledLinks = styled.div`
   width: 100%;
-  margin-left: 2rem;
+  margin: 0 2rem 0 2rem;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   a{
     color: #000a9b;

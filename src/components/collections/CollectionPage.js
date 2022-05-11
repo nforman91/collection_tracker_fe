@@ -20,7 +20,7 @@ const CollectionPage = (props) => {
   const { collection } = props;
   //   const [displayed, setDisplayed] = useState(collection);
   //   const displayedCollection = useSelector((state) => state.collection);
-  const { collection_name } = useParams();
+  const { collection_name, collection_type } = useParams();
   const navigate = useNavigate();
 
   const showCollection = () => {
@@ -41,6 +41,7 @@ const CollectionPage = (props) => {
         m={3}
       >
         <Typography variant="h4">Collection Name: {collection_name}</Typography>
+        <Typography variant="h4">Collection Type: {collection_type}</Typography>
         {/* <Link
           to={{
             pathname: `/mycollections/${collection.collection_name}/update`,
