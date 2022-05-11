@@ -4,19 +4,16 @@ export const FETCH_USERS_START = "FETCH_USERS_START";
 export const FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS";
 export const FETCH_USERS_FAIL = "FETCH_USERS_FAIL";
 
-export const fetchUsers = () => {
-  return (dispatch) => {
-    dispatch(fetchUsersStart());
-
-    axios
-      .get(`http://localhost:9000/api/users`)
+export const fetchUsers = credentials => dispatch => {
+  dispatch(fetchUsersStart());
+  return axios
+      .get(`http://localhost:9000/api/users`, credentials)
       .then((res) => {
         dispatch(fetchUsersSuccess(res.data));
       })
       .catch((err) => {
         dispatch(fetchUsersFail(err.message));
       });
-  };
 };
 
 // export const deleteUser = (user_id) => {

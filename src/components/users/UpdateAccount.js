@@ -24,25 +24,25 @@ const UpdateAccount = (props) => {
   const navigate = useNavigate();
 
   const handleUpdate = (name, value) => {
-    console.log(updateValues);
-    setUpdateValues({
-      ...updateValues,
-      [name]: value,
-    });
+    // console.log(updateValues);
+    // setUpdateValues({
+    //   ...updateValues,
+    //   [name]: value,
+    // });
   };
 
   const postUpdatedUser = (newUpdatedUser) => {
-    axios
-      .post("http://localhost:9000/api/users/update", newUpdatedUser)
-      .then((res) => {
-        setCurrentUser([res.data, ...users]);
-        setUpdateValues(initialUpdateValues);
-        navigate("/myaccount");
-      })
-      .catch((err) => {
-        console.log(err);
-        setUpdateValues(initialUpdateValues);
-      });
+    // axios
+    //   .post("http://localhost:9000/api/users/update", newUpdatedUser)
+    //   .then((res) => {
+    //     setCurrentUser([res.data, ...users]);
+    //     setUpdateValues(initialUpdateValues);
+    //     navigate("/myaccount");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     setUpdateValues(initialUpdateValues);
+    //   });
   };
 
   return (

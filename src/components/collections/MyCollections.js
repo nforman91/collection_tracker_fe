@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import { CollectionContext } from "../contexts/CollectionContext";
-// import axios from "axios";
+import axios from "axios";
 import { Box, Typography } from "@mui/material";
 import CollectionPageItem from "./CollectionPageItem";
 // import fetchCollections from "../api/fetchCollections";
-// import fetchCollections from "../../actions";
+import { fetchCollections } from "../../actions/collectionsAction";
 import { connect } from "react-redux";
 
 const style = {
@@ -16,9 +16,24 @@ const style = {
   flexWrap: "wrap",
 };
 
-const MyCollections = (props) => {
-  const { collections } = props;
-  console.log("COLLECTIONS: ", collections);
+const MyCollections = () => {
+  // const { collections } = props;
+  const [collections, setCollections] = useState([]);
+
+  useEffect(() => {
+    // const collections = fetchCollections();
+    // console.log("COLLECTIONS: ", collections);
+    // setMyCollections(collections);
+    return axios
+      .get(`http://localhost:9000/api/collections`)
+      .then(res => {
+        console.log(res.data, "RES.DATA")
+        setCollections(res.data);
+      })
+      .catch(err => {
+        console.log(err.message)
+      })
+  }, [])
 
   return (
     <Box
@@ -55,7 +70,8 @@ const MyCollections = (props) => {
                 // setCollections={setCollections}
               />
             );
-          })}
+          })
+          }
       </Box>
     </Box>
   );

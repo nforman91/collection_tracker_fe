@@ -13,7 +13,7 @@ function MyAccount(props) {
 
   return (
       <Box sx={{ ...style }}>
-    <Typography variant="h3">My Account</Typography>
+    <Typography variant="h4">My Account</Typography>
     {/* <div>Username: {users.username}</div> */}
     <Box sx={{ ...style, display: "flex", flexDirection: "column" }}>
         <Link to="/myaccount/updateaccount">Update Account</Link>

@@ -37,7 +37,7 @@ const Signup = () => {
     axios
       .post("http://localhost:9000/api/users/signup", newUser)
       .then((res) => {
-        setUser([res.data, ...user]);
+        setUser([res.data, ...signUpValues]);
         setSignUpValues(initialSignUpValues);
         navigate("/");
       })

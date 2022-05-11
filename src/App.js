@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import "./App.css";
 // import { CollectionContext } from "./contexts/CollectionContext";
+import useToken from "./components/useToken";
 
 import Home from "./components/Home";
 import Login from "./components/users/Login";
@@ -19,6 +20,11 @@ import UpdateCollection from "./components/collections/UpdateCollection";
 
 function App() {
   // const shouldRedirect = true;
+  // const [token, setToken] = useToken();
+
+  // if(!token){
+  //   return <Login setToken={setToken}/>
+  // }
 
   return (
     <Router>

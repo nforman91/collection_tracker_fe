@@ -1,9 +1,9 @@
 // import axios from "axios";
 import {
-  //   DELETE_USER,
   FETCH_USERS_START,
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAIL,
+  //   DELETE_USER,
 } from "../actions/usersAction";
 // import { users } from "../components/MyUsers";
 // import fetchusers from "../api/fetchUsers";
@@ -16,12 +16,6 @@ export const initialState = {
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case DELETE_USER:
-    //   return {
-    //     users: state.users.filter(
-    //       (user) => action.payload !== user.user_id
-    //     ),
-    //   };
     case FETCH_USERS_START:
       return {
         ...state,
@@ -39,6 +33,12 @@ const usersReducer = (state = initialState, action) => {
         loading: false,
         error: action.payload.error,
       };
+    // case DELETE_USER:
+    //   return {
+    //     users: state.users.filter(
+    //       (user) => action.payload !== user.user_id
+    //     ),
+    //   };
     default:
       return state;
   }

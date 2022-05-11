@@ -14,7 +14,7 @@ const NavBar = () => {
       <AppBar position="static" sx={{ ...style }}>
         <Toolbar>
           <StyledLinks>
-            <Typography variant="title" color="inherit">
+            <Typography variant="title" color="inherit" fontSize="1.5rem">
               <Link to="/">Collection Tracker</Link>
             </Typography>
             <Link to="/login">Login</Link>
@@ -33,6 +33,11 @@ const StyledLinks = styled.div`
   margin-left: 2rem;
   display: flex;
   justify-content: space-between;
+  a{
+    color: #000a9b;
+    text-decoration: none;
+    font-family: 'Roboto';
+  }
 `;
 
 export default NavBar;
