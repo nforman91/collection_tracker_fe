@@ -34,7 +34,7 @@ const DeleteCollectionModal = (props) => {
       }}
     >
       <Typography>
-        {`Are you sure you want to delete collection ${collection.collection_name}?`}
+        {`Are you sure you want to delete your ${collection.collection_name} collection?`}
       </Typography>
       <Button sx={{ ...style }} onClick={handleYes}>
         Yes

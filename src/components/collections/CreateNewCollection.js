@@ -53,7 +53,6 @@ const CreateNewCollection = (props) => {
   };
 
   const onChange = (e) => {
-    console.log(formValues)
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 

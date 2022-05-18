@@ -27,7 +27,6 @@ const MyCollections = () => {
     return axios
       .get(`http://localhost:9000/api/collections`)
       .then(res => {
-        console.log(res.data, "RES.DATA")
         setCollections(res.data);
       })
       .catch(err => {

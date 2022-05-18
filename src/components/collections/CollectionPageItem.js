@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Box, Button } from "@mui/material";
 import DeleteCollectionModal from "./DeleteCollectionModal";
 
@@ -26,6 +26,7 @@ const buttonStyle = {
 };
 
 const CollectionPageItem = (props) => {
+  const navigate = useNavigate();
   const { collection, setCollections } = props;
   const [modal, setModal] = useState(false);
 
@@ -40,7 +41,8 @@ const CollectionPageItem = (props) => {
         `http://localhost:9000/api/collections/${collection.collection_id}`
       )
       .then((res) => {
-        setCollections(res.data);
+        // setCollections(res.data);
+        navigate("/mycollections");
       });
   };
 

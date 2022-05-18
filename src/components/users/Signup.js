@@ -28,8 +28,6 @@ const Signup = () => {
   const [user, setUser] = useState(initialUser);
   const [signUpValues, setSignUpValues] = useState(initialSignUpValues);
 
-  
-
   const postUser = (newUser) => {
     axios
       .post("http://localhost:9000/api/users/signup", newUser)

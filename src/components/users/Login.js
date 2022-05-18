@@ -31,8 +31,8 @@ const Login = (
   { setToken }
   ) => {
   // const [login, setLogin] = useState(credentials);
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState([]);
+  const [password, setPassword] = useState([]);
   const navigate = useNavigate();
 
   // const handleChange = (e) => {
@@ -44,11 +44,13 @@ const Login = (
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // axios.post("http://localhost:9000/api/users/login", username, password).then((res) => {
-    //   localStorage.setItem("token", res.data.token);
-    //   localStorage.setItem("username", res.data.username);
-    //   navigate("/mycollections");
-    // });
+    axios
+    .post("http://localhost:9000/api/users/login", username, password)
+    .then((res) => {
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("username", res.data.username);
+      navigate("/mycollections");
+    });
     const token = await loginUser({
       username,
       password
@@ -67,7 +69,6 @@ const Login = (
       noValidate
       autoComplete="off"
       m={3}
-      onSubmit={handleSubmit}
     >
       <Typography variant="h4">Login</Typography>
       <TextField
@@ -88,7 +89,7 @@ const Login = (
         type="password"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <Button sx={{ ...style }} color="primary" variant="contained">
+      <Button sx={{ ...style }} color="primary" variant="contained" onClick={handleSubmit}>
         LOGIN
       </Button>
     </Box>
