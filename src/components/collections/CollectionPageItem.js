@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { Box, Button } from "@mui/material";
 import DeleteCollectionModal from "./DeleteCollectionModal";
+import styled from "styled-components";
 
 const style = {
   width: { sm: 100, md: 300 },
@@ -63,6 +64,7 @@ const CollectionPageItem = (props) => {
         >
           <Button sx={{ ...buttonStyle }}>Edit</Button>
         </Link> */}
+        <StyledLink>
         <Link
           to={{
             pathname: `/mycollections/${collection.collection_name}`,
@@ -74,6 +76,7 @@ const CollectionPageItem = (props) => {
         >
           <Button sx={{ ...buttonStyle }}>View</Button>
         </Link>
+        </StyledLink>
         <Button sx={{ ...buttonStyle }} onClick={showModal}>
           Delete
         </Button>
@@ -95,5 +98,12 @@ const CollectionPageItem = (props) => {
     </Box>
   );
 };
+
+const StyledLink = styled.div`
+  a{
+    color: #000;
+    text-decoration: none;
+  }
+`;
 
 export default CollectionPageItem;

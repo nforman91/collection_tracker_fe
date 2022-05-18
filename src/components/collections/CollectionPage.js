@@ -1,9 +1,11 @@
 import React from "react";
 // import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 // import { useSelector } from "react-redux";
 import { Box, Typography, Button } from "@mui/material";
 import UpdateCollection from "./UpdateCollection";
+import MyCollections from "./MyCollections";
+import styled from "styled-components";
 
 const buttonStyle = {
   height: 30,
@@ -55,6 +57,11 @@ const CollectionPage = (props) => {
         >
           Edit
         </Button>
+        <Button sx={{ ...buttonStyle, width: 200 }}>
+          <StyledLink>
+            <Link to="/mycollections">Back To Collections</Link>
+          </StyledLink>
+        </Button>
         {/* </Link> */}
         <Button onClick={showCollection}>Collection</Button>
         {/* <Typography variant="h4">Collection Type: {collection_type}</Typography> */}
@@ -62,5 +69,12 @@ const CollectionPage = (props) => {
     </div>
   );
 };
+
+const StyledLink = styled.div`
+  a{
+    color: #000;
+    text-decoration: none;
+  }
+`;
 
 export default CollectionPage;
