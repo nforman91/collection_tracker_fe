@@ -1,5 +1,8 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import { titleAnim } from "../animation";
 
 const style = {
   mt: 2,
@@ -13,6 +16,11 @@ const style = {
 
 const Home = () => {
   return (
+    <StyledHome
+      variants={titleAnim}
+      initial="hidden"
+      animate="show"
+    >
     <Box sx={{ ...style }}>
       <Typography sx={{ ...style, border: "solid black 1px", p: 3, backgroundColor: "primary.light", m: 3, width: { sm: 500, md: 800 }, height: "10em", flexDirection: "column", boxShadow: 6, alignItems: "center"}} variant="h4">
         Welcome to the Collection Tracker!
@@ -21,7 +29,12 @@ const Home = () => {
         </Typography>
       </Typography>
     </Box>
+    </StyledHome>
   );
 };
+
+const StyledHome = styled(motion.div)`
+    color: black;
+`;
 
 export default Home;

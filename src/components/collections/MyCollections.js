@@ -8,6 +8,8 @@ import CollectionPageItem from "./CollectionPageItem";
 import { fetchCollections } from "../../actions/collectionsAction";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { titleAnim } from "../../animation";
 
 const style = {
   backgroundColor: "primary.light",
@@ -39,17 +41,17 @@ const MyCollections = () => {
       sx={{
         ...style,
         height: "100%",
-        width: 1150,
+        width: "90%",
         alignItems: "flex-start",
       }}
     >
+      <StyledBox>
       <Typography
         sx={{
           ...style,
           p: 1,
           height: 100,
           width: 1000,
-          
         }}
         variant="h1"
         color="secondary"
@@ -66,7 +68,13 @@ const MyCollections = () => {
           <Link to="/mycollections/createnew">Create New Collection</Link>
         </StyledLink>
       </Button>
-      <Box sx={{ ...style, p: 2 }}>
+      </StyledBox>
+      <StyledCollections
+        variants={titleAnim}
+        initial="hidden"
+        animate="show"
+      >
+      <Box sx={{ ...style, backgroundColor: null, p: 2 }}>
         {collections &&
           collections.map((collection) => {
             return (
@@ -79,15 +87,26 @@ const MyCollections = () => {
           })
           }
       </Box>
+      </StyledCollections>
     </Box>
   );
 };
+
+const StyledBox = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
 
 const StyledLink = styled.div`
   a{
     color: #000;
     text-decoration: none;
   }
+`;
+
+const StyledCollections = styled(motion.div)`
+    color: black;
+    margin-left: -2em;
 `;
 
 const mapStateToProps = (state) => {

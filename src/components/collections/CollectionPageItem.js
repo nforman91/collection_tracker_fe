@@ -33,7 +33,6 @@ const CollectionPageItem = (props) => {
 
   const showModal = () => {
     setModal(true);
-    console.log("Collection: ", collection);
   };
 
   const handleYes = () => {
