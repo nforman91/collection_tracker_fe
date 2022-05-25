@@ -31,29 +31,34 @@ const Login = (
   { setToken }
   ) => {
   // const [login, setLogin] = useState(credentials);
-  const [username, setUsername] = useState([]);
-  const [password, setPassword] = useState([]);
+  // const [username, setUsername] = useState([]);
+  // const [password, setPassword] = useState([]);
+  const [values, setValues] = useState({
+    username: "",
+    password: ""
+  });
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  // const handleChange = (e) => {
-  //   setLogin({
-  //     ...login,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
+  const handleChange = (e) => {
+    console.log(values)
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
-    .post("http://localhost:9000/api/users/login", username, password)
+    .post("http://localhost:9000/api/users/login", values)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      localStorage.setItem("username", res.data.username);
+      // localStorage.setItem("username", res.data.username);
       navigate("/mycollections");
     });
     const token = await loginUser({
-      username,
-      password
+      values
     });
     setToken(token);
   };
@@ -76,18 +81,18 @@ const Login = (
         id="standard-required-username"
         label="Username"
         variant="standard"
-        // value={login.username}
+        value={values.username}
         type="text"
-        onChange={(e) => setUsername(e.target.value)}
+        onChange={handleChange}
       />
       <TextField
         required
         id="standard-required-password"
         label="Password"
         variant="standard"
-        // value={login.password}
+        value={values.password}
         type="password"
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={handleChange}
       />
       <Button sx={{ ...style }} color="primary" variant="contained" onClick={handleSubmit}>
         LOGIN
