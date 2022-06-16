@@ -4,6 +4,9 @@ import { Box, Typography, Button } from "@mui/material";
 import axios from "axios";
 import DeleteAccountModal from "./DeleteAccountModal";
 import { connect } from "react-redux";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import { titleAnim } from "../../animation";
 
 const style = {
   mt: 2,
@@ -74,6 +77,11 @@ const DeleteAccount = (props) => {
       m={3}
     >
       <Typography variant="h4">Delete Account</Typography>
+      <StyledDeleteAccount
+        variants={titleAnim}
+        initial="hidden"
+        animate="show"
+      >
       <Button sx={{ ...buttonStyle }} onClick={showModal}>
           Delete Account
         </Button>
@@ -84,9 +92,16 @@ const DeleteAccount = (props) => {
             handleNo={handleNo}
           />
         )}
+      </StyledDeleteAccount>
     </Box>
   );
 };
+
+const StyledDeleteAccount = styled(motion.div)`
+    color: black;
+    display: flex;
+    flex-direction: column;
+`;
 
 const mapStateToProps = (state) => {
   return {

@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Box, TextField, Typography, Button } from "@mui/material";
 import axios from "axios";
 import { connect } from "react-redux";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import { titleAnim } from "../../animation";
 
 const style = {
   mt: 2,
@@ -59,6 +62,11 @@ const UpdateAccount = (props) => {
       onSubmit={postUpdatedUser}
     >
       <Typography variant="h4">Update</Typography>
+      <StyledUpdateAccount
+        variants={titleAnim}
+        initial="hidden"
+        animate="show"
+      >
       <TextField
         required
         id="standard-required"
@@ -78,9 +86,16 @@ const UpdateAccount = (props) => {
       <Button sx={{ ...style }} color="primary" variant="contained">
         Update
       </Button>
+      </StyledUpdateAccount>
     </Box>
   );
 };
+
+const StyledUpdateAccount = styled(motion.div)`
+    color: black;
+    display: flex;
+    flex-direction: column;
+`;
 
 const mapStateToProps = (state) => {
   return {

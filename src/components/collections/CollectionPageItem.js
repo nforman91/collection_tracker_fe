@@ -13,6 +13,7 @@ const style = {
   ml: 2,
   p: 2,
   flexWrap: "wrap",
+  borderRadius: 5,
 };
 
 const buttonStyle = {
@@ -54,6 +55,7 @@ const CollectionPageItem = (props) => {
     <Box sx={{ ...style, display: "flex", flexDirection: "column" }}>
       <div>Collection Name: {collection.collection_name}</div>
       <div>Collection Type: {collection.collection_type}</div>
+      <div>Collection Tag: {collection.collection_tag}</div>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         {/* <Link
           to={{

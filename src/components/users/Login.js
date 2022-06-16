@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Box, TextField, Typography, Button } from "@mui/material";
 import axios from "axios";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import { titleAnim } from "../../animation";
 
 const style = {
   mt: 2,
@@ -76,6 +79,11 @@ const Login = (
       m={3}
     >
       <Typography variant="h4">Login</Typography>
+      <StyledLogin
+        variants={titleAnim}
+        initial="hidden"
+        animate="show"
+      >
       <TextField
         required
         id="standard-required-username"
@@ -97,9 +105,16 @@ const Login = (
       <Button sx={{ ...style }} color="primary" variant="contained" onClick={handleSubmit}>
         LOGIN
       </Button>
+      </StyledLogin>
     </Box>
   );
 };
+
+const StyledLogin = styled(motion.div)`
+    color: black;
+    display: flex;
+    flex-direction: column;
+`;
 
 // Login.propTypes = {
 //   setToken: PropTypes.func.isRequired

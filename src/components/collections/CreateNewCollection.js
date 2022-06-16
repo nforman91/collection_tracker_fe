@@ -16,6 +16,7 @@ const CreateNewCollection = (props) => {
   const initialFormValues = {
     collection_name: "",
     collection_type: "",
+    collection_tag: "",
   };
 
   // const initialFormErrors = {
@@ -48,6 +49,7 @@ const CreateNewCollection = (props) => {
     const newCollection = {
       collection_name: formValues.collection_name.trim(),
       collection_type: formValues.collection_type.trim(),
+      collection_tag: formValues.collection_tag.trim(),
     };
     postCollection(newCollection);
   };
@@ -91,6 +93,17 @@ const CreateNewCollection = (props) => {
           type="text"
           onChange={onChange}
           value={formValues.collection_type}
+        />
+        <Typography variant="h4">Collection Tag</Typography>
+        <TextField
+          required
+          id="standard-required"
+          label="Collection Tag"
+          variant="standard"
+          name="collection_tag"
+          type="text"
+          onChange={onChange}
+          value={formValues.collection_tag}
         />
         <Button
           sx={{ ...style }}

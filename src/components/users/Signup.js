@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, TextField, Typography, Button } from "@mui/material";
 import axios from "axios";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import { titleAnim } from "../../animation";
 
 const style = {
   mt: 2,
@@ -72,6 +75,11 @@ const Signup = () => {
       m={3}
     >
       <Typography variant="h4">Signup</Typography>
+      <StyledSignup
+        variants={titleAnim}
+        initial="hidden"
+        animate="show"
+      >
       <TextField
         required
         id="standard-required"
@@ -93,8 +101,15 @@ const Signup = () => {
       <Button sx={{ ...style }} color="primary" variant="contained" onClick={formSubmit}>
         SIGNUP
       </Button>
+      </StyledSignup>
     </Box>
   );
 };
+
+const StyledSignup = styled(motion.div)`
+    color: black;
+    display: flex;
+    flex-direction: column;
+`;
 
 export default Signup;
