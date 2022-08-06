@@ -36,7 +36,7 @@ const Home = () => {
         }} variant="h4">
         Welcome to the Collection Tracker!
         <Typography sx={{ ...style, p: 3, m: 3, width: "40em", alignItems: "flexStart", flexWrap: "wrap"}}>
-        This is an app that you can use to track your collections! You have the ability to create an account. Once you have an account, you can create collections on your account. ***login, update and delete an account. <br/>***update and delete a collection.
+        This is an app that you can use to track your collections! You have the ability to create an account. Once you have an account, you can create collections on your account.
         </Typography>
       </Typography>
     </Box>
