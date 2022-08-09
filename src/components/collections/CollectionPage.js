@@ -64,7 +64,7 @@ const CollectionPage = (props) => {
           </StyledLink>
         </Button>
         {/* </Link> */}
-        <Button onClick={showCollection}>Collection</Button>
+        {/* <Button onClick={showCollection}>Collection</Button> */}
         {/* <Typography variant="h4">Collection Type: {collection_type}</Typography> */}
       </Box>
     </div>

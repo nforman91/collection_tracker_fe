@@ -72,7 +72,7 @@ const CollectionPageItem = (props) => {
             state: { collection: collection },
           }}
           //   state={collection}
-          //   collection={collection}
+            collection={collection}
           //   setCollections={setCollections}
         >
           <Button sx={{ ...buttonStyle }}>View</Button>
