@@ -53,9 +53,12 @@ const CollectionPage = (props) => {
         > */}
         <Button
           sx={{ ...buttonStyle }}
-          onClick={() => navigate(<UpdateCollection collection={collection} />)}
+          // onClick={() => navigate(<UpdateCollection collection={collection} />)}
           //   collection={collection}
         >
+          <StyledLink>
+            <Link to="/mycollections/update">Edit</Link>
+          </StyledLink>
           Edit
         </Button>
         <Button sx={{ ...buttonStyle, width: 200 }}>
