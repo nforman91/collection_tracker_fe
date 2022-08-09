@@ -1,6 +1,6 @@
-import React from "react";
-// import { useNavigate } from "react-router-dom";
-// import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { Box, TextField, Typography, Button } from "@mui/material";
 
 const style = {
@@ -16,9 +16,17 @@ const style = {
 // };
 
 const UpdateCollection = (props) => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const { collection, collection_name, collection_type, collection_tag } = props;
-  // const [updatedCollection, setUpdatedCollection] = useState(collection);
+  const [updatedCollection, setUpdatedCollection] = useState(collection);
+
+  const handleUpdate = () => {
+    axios
+      .then((res) => {
+        setUpdatedCollection([res.data, ...collection]);
+        navigate(`/mycollections/${collection.collection_name}`);
+      })
+  }
 
   return (
     <div className="collection-update">
@@ -72,7 +80,7 @@ const UpdateCollection = (props) => {
           sx={{ ...style }}
           color="primary"
           variant="contained"
-          //   onClick={handleUpdate}
+            onClick={handleUpdate}
         >
           UPDATE COLLECTION
         </Button>
