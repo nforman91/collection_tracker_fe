@@ -36,7 +36,7 @@ const Login = (
   // const [login, setLogin] = useState(credentials);
   // const [username, setUsername] = useState([]);
   // const [password, setPassword] = useState([]);
-    const [initialLoginValues, setInitialLoginValues] = {
+    const initialLoginValues = {
       username: "",
       password: ""
     };
