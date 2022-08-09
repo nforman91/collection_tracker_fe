@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Box, TextField, Typography, Button } from "@mui/material";
 import axios from "axios";
 import PropTypes from "prop-types";
@@ -50,6 +50,10 @@ const Login = (
       [e.target.name]: e.target.value,
     });
   };
+
+  const handleSignup = () => {
+    navigate("/signup")
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -104,6 +108,10 @@ const Login = (
       />
       <Button sx={{ ...style }} color="primary" variant="contained" onClick={handleSubmit}>
         LOGIN
+      </Button>
+      <Typography>Not signed up yet?</Typography>
+      <Button sx={{ ...style }} color="primary" variant="contained" onClick={handleSignup}>
+        Go to Signup
       </Button>
       </StyledLogin>
     </Box>
