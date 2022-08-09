@@ -62,6 +62,10 @@ const Signup = () => {
     });
   };
 
+  const handleLogin = () => {
+    navigate("/login")
+  }
+
   return (
     <Box
       component="form"
@@ -100,6 +104,10 @@ const Signup = () => {
       />
       <Button sx={{ ...style }} color="primary" variant="contained" onClick={formSubmit}>
         SIGNUP
+      </Button>
+      <Typography sx={{ mt: 2 }}>Already signed up?</Typography>
+      <Button sx={{ ...style }} color="primary" variant="contained" onClick={handleLogin}>
+        Go to Login
       </Button>
       </StyledSignup>
     </Box>
