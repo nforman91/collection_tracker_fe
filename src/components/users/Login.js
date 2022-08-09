@@ -109,7 +109,7 @@ const Login = (
       <Button sx={{ ...style }} color="primary" variant="contained" onClick={handleSubmit}>
         LOGIN
       </Button>
-      <Typography>Not signed up yet?</Typography>
+      <Typography sx={{ ...style, mt: 2 }}>Not signed up yet?</Typography>
       <Button sx={{ ...style }} color="primary" variant="contained" onClick={handleSignup}>
         Go to Signup
       </Button>
