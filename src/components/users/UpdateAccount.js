@@ -61,7 +61,7 @@ const UpdateAccount = (props) => {
       m={3}
       onSubmit={postUpdatedUser}
     >
-      <Typography variant="h4">Update</Typography>
+      <Typography variant="h4">Update Account</Typography>
       <StyledUpdateAccount
         variants={titleAnim}
         initial="hidden"

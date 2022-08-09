@@ -34,7 +34,7 @@ const DeleteAccountModal = (props) => {
       }}
     >
       <Typography>
-        {`Are you sure you want to delete ${user.username}?`}
+        Are you sure you want to delete your account?
       </Typography>
       <Button sx={{ ...style }} onClick={handleYes}>
         Yes
