@@ -17,7 +17,7 @@ const style = {
 
 const UpdateCollection = (props) => {
   // const navigate = useNavigate();
-  const { collection } = props;
+  const { collection, collection_name, collection_type, collection_tag } = props;
   // const [updatedCollection, setUpdatedCollection] = useState(collection);
 
   return (
@@ -44,7 +44,7 @@ const UpdateCollection = (props) => {
           type="text"
           //   onChange={changeCollectionName}
           // value={formValues.collection_name}
-          placeholder={collection.collection_name}
+          placeholder={collection_name}
         />
         <Typography variant="h4">Update Collection Type</Typography>
         <TextField
@@ -55,7 +55,18 @@ const UpdateCollection = (props) => {
           type="text"
           //   onChange={changeCollectionType}
           // value={formValues.collection_type}
-          placeholder={collection.collection_type}
+          placeholder={collection_type}
+        />
+        <Typography variant="h4">Update Collection Tag</Typography>
+        <TextField
+          id="standard"
+          label="Collection Tag"
+          variant="standard"
+          name="collection_tag"
+          type="text"
+          //   onChange={changeCollectionTag}
+          // value={formValues.collection_tag}
+          placeholder={collection_tag}
         />
         <Button
           sx={{ ...style }}
