@@ -59,7 +59,6 @@ const CollectionPage = (props) => {
           <StyledLink>
             <Link to="/mycollections/update">Edit</Link>
           </StyledLink>
-          Edit
         </Button>
         <Button sx={{ ...buttonStyle, width: 200 }}>
           <StyledLink>
