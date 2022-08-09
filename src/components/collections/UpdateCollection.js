@@ -20,8 +20,9 @@ const UpdateCollection = (props) => {
   const { collection, collection_name, collection_type, collection_tag } = props;
   const [updatedCollection, setUpdatedCollection] = useState(collection);
 
-  const handleUpdate = () => {
+  const handleUpdate = (updatedCollection) => {
     axios
+      .put(`http://localhost:9000/api/collections`, updatedCollection)
       .then((res) => {
         setUpdatedCollection([res.data, ...collection]);
         navigate(`/mycollections/${collection.collection_name}`);
