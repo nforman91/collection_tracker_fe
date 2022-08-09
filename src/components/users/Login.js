@@ -36,17 +36,19 @@ const Login = (
   // const [login, setLogin] = useState(credentials);
   // const [username, setUsername] = useState([]);
   // const [password, setPassword] = useState([]);
-  const [values, setValues] = useState({
-    username: "",
-    password: ""
-  });
+    const [initialLoginValues, setInitialLoginValues] = {
+      username: "",
+      password: ""
+    };
+
+  const [loginValues, setLoginValues] = useState(initialLoginValues);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    console.log(values)
-    setValues({
-      ...values,
+    console.log(loginValues)
+    setLoginValues({
+      ...loginValues,
       [e.target.name]: e.target.value,
     });
   };
@@ -58,14 +60,14 @@ const Login = (
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
-    .post("http://localhost:9000/api/users/login", values)
+    .post("http://localhost:9000/api/users/login", loginValues)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
       // localStorage.setItem("username", res.data.username);
       navigate("/mycollections");
     });
     const token = await loginUser({
-      values
+      loginValues
     });
     setToken(token);
   };
@@ -93,7 +95,7 @@ const Login = (
         id="standard-required-username"
         label="Username"
         variant="standard"
-        value={values.username}
+        value={loginValues.username}
         type="text"
         onChange={handleChange}
       />
@@ -102,7 +104,7 @@ const Login = (
         id="standard-required-password"
         label="Password"
         variant="standard"
-        value={values.password}
+        value={loginValues.password}
         type="password"
         onChange={handleChange}
       />
