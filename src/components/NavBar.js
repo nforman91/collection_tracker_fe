@@ -67,6 +67,9 @@ const NavBar = () => {
 
 const StyledLinks = styled.div`
   width: 100%;
+  @media(max-width: 1700px){
+    font-size: 80%;
+  }
   margin-right: 2rem;
   display: flex;
   a{
